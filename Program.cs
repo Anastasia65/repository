@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace AtbashCipher
 {
@@ -6,7 +6,7 @@ namespace AtbashCipher
     {
         static void Main()
         {
-            Console.Write("Enter messages: ");
+            Console.Write("Enter message: ");
             string userInput = Console.ReadLine();
             Console.WriteLine();
 
@@ -34,10 +34,31 @@ namespace AtbashCipher
 
             }
 
-            Console.WriteLine("Encoded messages: " + result);
+            Console.WriteLine("Encripted message: " + result);
             Console.WriteLine();
 
-            Console.Write("Press any key to exit.");
+            Console.WriteLine("Enter encripted message: ");
+            string Input = Console.ReadLine();
+            string res = "";
+            foreach (char c in Input)
+            {
+                for (int i = 0; i < Alphabet.Length; i++)
+                {
+                    if (c == Alphabet[i])
+                    {
+                        res += Alphabet[Alphabet.Length - 1 - i];
+
+                    }
+                    if (c == AlphabetUpper[i])
+                    {
+                        res += AlphabetUpper[AlphabetUpper.Length - 1 - i];
+
+                    }
+                }
+            }
+            Console.WriteLine("Decripted message: " + res);
+            Console.WriteLine();
+
             Console.ReadKey();
         }
     }
